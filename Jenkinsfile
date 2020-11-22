@@ -3,17 +3,16 @@ pipeline {
      stages {
         stage("Build") {
             steps {
-                sh "ls"
-                sh "pwd"
                 sh "git checkout deploy"
-                sh "ls"
-                sh "echo foiiii porra"
+                sh "npm install"
+                sh "npm run build"
                 
             }
         }
         stage("Deploy") {
             steps {
-                sh "sudo cp /home/ec2-user/All_Pets/build /home/ec2-user/jenkins/"
+                sh "echo ok"
+                sh "ls"
             }
         }
     }
