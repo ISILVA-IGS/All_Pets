@@ -1,8 +1,7 @@
-
+@Library('github.com/releaseworks/jenkinslib')_
 pipeline {
      agent any
-     @Library('github.com/releaseworks/jenkinslib')_
-     stages {
+    stages {
         stage("Deploy") {
              
             steps {
