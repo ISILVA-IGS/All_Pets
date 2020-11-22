@@ -9,8 +9,8 @@ pipeline {
         }
           stage("List S3 buckets") {
              steps{
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'key2', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                AWS("s3 sync build/ s3://allpets.app --acl public-read")
+                withCredentials([string(accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                sh "aws s3 sync build/ s3://allpets.app --acl public-read
             }
         }
      }
