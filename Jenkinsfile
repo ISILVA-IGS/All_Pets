@@ -1,14 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:14-alpine' 
-            args '-p 3000:3000' 
-        }
-    }
-    stages {
-        stage('Build') { 
+     agent any
+     stages {
+        stage("Deploy") {
             steps {
-                sh 'npm install' 
+                sh "git checkout deploy"
+                sh "aws s3 sync build/ s3://allpets.app --acl public-read"
             }
         }
     }
