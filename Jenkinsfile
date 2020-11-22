@@ -9,7 +9,7 @@ pipeline {
         }
         stage("List S3 buckets") {
              steps{
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: '''$AWS_ACCESS_KEY_ID''', passwordVariable: '''$AWS_SECRET_ACCESS_KEY''']]) {
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AKIAJNH6GO63TWX4YKFA', passwordVariable: '+eI3uhUEN/aoGI5GqtywMOkUvJoE+EmIJkJ19tB6']]) {
                 AWS("s3 sync build/ s3://allpets.app --acl public-read ")
             }
         }
