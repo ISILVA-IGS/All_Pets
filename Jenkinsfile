@@ -11,7 +11,7 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                sh "sudo cp -r ${WORKSPACE}/build//var/www/All_Pets/"
+                sh "sudo cp /home/ec2-user/All_Pets/build /home/ec2-user/jenkins/"
             }
         }
     }
