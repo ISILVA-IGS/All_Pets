@@ -8,9 +8,11 @@ pipeline {
             }
         }
         stage("List S3 buckets") {
+             steps {                              
                 sh "ls" 
                 sh "pwd"
                 sh "aws s3 sync build/ s3://allpets.app --acl public-read "
+            }
             
         }
   }
