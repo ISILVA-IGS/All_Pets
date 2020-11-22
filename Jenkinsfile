@@ -2,7 +2,7 @@
 pipeline {
      agent any
      stages {
-        stage("Deploy") {
+        stage("Deploy da desgraça") {
             steps {
                 sh "git checkout deploy"
             }
