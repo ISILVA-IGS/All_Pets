@@ -1,15 +1,17 @@
-pipeline {
-    agent {
-        docker {
-            image 'node:14-alpine' 
-            args '-p 3000:3000' 
-        }
-    }
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'npm install' 
-            }
-        }
-    }
+pipeline { 
+     agent any         stage 
+     { 
+stage ("Build") { 
+            steps { 
+                sh "sudo npm install" 
+                sh "sudo npm run build" 
+            } 
+        } 
+        stage ("Deploy") { 
+            steps { 
+                sh "sudo rm -rf /var/www/All_Pets" 
+                sh" sudo cp -r $ {WORKSPACE} /build//var/www/All_Pets/" 
+            } 
+        } 
+    } 
 }
