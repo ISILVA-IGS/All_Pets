@@ -7,7 +7,7 @@ pipeline {
                 sh "git checkout deploy"
             }
         }
-        stage("List S3 buckets") 
+          stage("List S3 buckets") {
              steps{
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'key2', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                 AWS("s3 sync build/ s3://allpets.app --acl public-read ")
@@ -16,4 +16,4 @@ pipeline {
      }
   }
 }
-}
+
