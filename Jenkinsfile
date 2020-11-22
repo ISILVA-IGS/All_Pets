@@ -5,6 +5,8 @@ pipeline {
             steps {
                 sh "ls"
                 sh "pwd"
+                sh "git checkout deploy"
+                sh "ls"
                 sh "echo foiiii porra"
                 
             }
