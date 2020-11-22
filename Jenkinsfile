@@ -5,11 +5,12 @@ pipeline {
             steps {
                 sh "sudo npm install"
                 sh "sudo npm run build"
+                sh "echo foiiii porra"
+                
             }
         }
         stage("Deploy") {
             steps {
-                sh "sudo rm -rf /var/www/All_Pets"
                 sh "sudo cp -r ${WORKSPACE}/build//var/www/All_Pets/"
             }
         }
