@@ -1,4 +1,4 @@
-@Library('github.com/releaseworks/jenkinslib') _
+@Library('github.com/releaseworks/jenkinslib')_
 pipeline {
      agent any
      stages {
@@ -8,12 +8,11 @@ pipeline {
             }
         }
         stage("List S3 buckets") {
-             steps {                              
-                sh "ls" 
-                sh "pwd"
-                sh "aws s3 sync build/ s3://allpets.app --acl public-read "
+             steps{
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                AWS("s3 sync build/ s3://allpets.app --acl public-read ")
             }
-            
         }
+     }
   }
 }
