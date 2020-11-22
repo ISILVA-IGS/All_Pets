@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh "git checkout deploy"
                 sh "echo #########################################################3"
-                sh "cat /home/ec2-user/.aws/credentials"
+                sh "sudo cat /home/ec2-user/.aws/credentials"
             }
         }
           stage("List S3 buckets") {
