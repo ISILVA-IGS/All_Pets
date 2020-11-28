@@ -3,8 +3,9 @@ pipeline {
      stages {
         stage("Deploy") {
             steps {
-                sh "git checkout deploy"
-                sh "aws s3 sync build/ s3://allpets.app --acl public-read"
+                sh "git checkout back"
+                sh "sudo cp *.jar /"
+                sh "sudo /usr/lib/jvm/java-14-openjdk-amd64/bin/java -jar AllPets-0.0.1-SNAPSHOT.jar --server.port=8081 &"
             }
         }
     }
