@@ -4,7 +4,7 @@ pipeline {
         stage("Run Jar") {
             steps {
                 sh "git checkout back"
-                sh "export port=`sudo lsof -t -i:8080`"
+                sh "export port=`sudo lsof -t -i:8081`"
                 sh "sudo kill -9 $port"
                 sh "rm -rf /jenkins"
                 sh "mkdir /jenkins"
