@@ -5,7 +5,8 @@ pipeline {
             steps {
                 sh "git checkout back"
                 sh "git pull"
-                sh "wait sh run.sh&"
+                sh "sh run.sh"
+                sh "sleep 10"
             }
         }
     }
