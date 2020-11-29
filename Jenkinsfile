@@ -1,7 +1,7 @@
 pipeline {
      agent any
      stages {
-        stage("Deploy") {
+        stage("Run Jar") {
             steps {
                 sh "git checkout back"
                 sh "sudo cp *.jar /"
