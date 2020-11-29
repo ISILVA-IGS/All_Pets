@@ -6,7 +6,7 @@ pipeline {
                 sh "git checkout back"
                 sh "git pull"
                 sh "sh run.sh"
-                sh "sleep 10"
+                sh "sleep 80"
             }
         }
     }
